@@ -1,0 +1,143 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-padding-bottom: 300px;
+}
+
+.logo, .titulo {
+    font-family: 'Righteous', cursive;
+    font-weight: 400;
+}
+
+.body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #E5E5E5;
+}
+
+.logo {
+    font-style: normal;
+    font-size: 44px;
+    line-height: 54.63px;
+    letter-spacing: -1,2%;
+    color: #fff;
+    margin: 8px 0px 0px 20px;
+}
+
+.sub-logo {
+    position: relative;
+    top: -5px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21.09px;
+    color: #fff;
+    margin: 0px 20px;
+}
+
+.titulo {
+    font-size: 26px;
+    line-height: 32.28px;
+    letter-spacing: 1,8%;
+    color: #333;
+    margin: 0px;
+}
+
+.topbar {
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+    height: 92px;
+    top: 0;
+    left: 0;
+    background-color: #CF2B2B;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.container-main {
+    position: relative;
+    top: 125px;
+    left: 0;
+    margin: auto;
+}
+
+.container-pratos, .container-bebidas, .container-sobremesas {
+    margin: 12px 12px;
+}
+
+.container-cards {
+    overflow-x: scroll;
+    display: flex;
+}
+
+.card {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    width: 172px;
+    height: 250px;
+    margin: 16px;
+    padding: 14px;
+    border-radius: 9px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25);
+}
+
+.card > p {
+    margin: 0px;
+}
+
+.img, img {
+    width: 144px;
+    height: 87px;
+    border-radius: 4px;
+}
+
+.card-titulo {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: #333;
+}
+
+.card-descricao {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+    color: #A6A6A6;
+}
+
+.card-preco {
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+}
+
+.checkout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 92px;
+    position: sticky;
+    background-color: #fff;
+    bottom: 0;
+    left: 0;
+}
+
+button {
+    width: 364px;
+    height: 61px;
+    background-color: #cbcbcb;
+    border-radius: 50px;
+}
+
+
+
+
