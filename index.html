@@ -163,7 +163,7 @@
                         </div>
                     </div>
                     <div class="card">
-                        <div class="img"><img src="./static/media/" alt=""></div>
+                        <div class="img"><img src="./static/media/bolo.jpg" alt=""></div>
                         <p class="card-titulo">Bolo</p>
                         <p class="card-descricao">Pote de bolo 190g.</p>
                         <div class="card-preco">
@@ -174,8 +174,34 @@
                 </div>
         </div>
         <footer class="checkout">
-            <button type="button">Selecione os 3 itens <br> para fechar o pedido.</button>
+            <button type="submit">Selecione os 3 itens <br> para fechar o pedido.</button>
         </footer>
+    </div>
+
+    <div id="modal">
+        <div class="modal-container">
+            <p class="modal-titulo">Confirme seu pedido:</p>
+            <div class="modal-div">
+                <p class="prato"></p>
+                <p class="preco-prato"></p>
+            </div>
+            <div class="modal-div">
+                <p class="bebida"></p>
+                <p class="preco-bebida"></p>
+            </div>
+            <div class="modal-div">
+                <p class="sobremesa"></p>
+                <p class="preco-sobremesa"></p>
+            </div>
+            <div class="modal-div">
+                <p class="total">TOTAL</p>
+                <p class="preco-total"></p>
+            </div>
+
+            <button class="submit" type="submit">Tudo certo, pode pedir</button>
+            <button class="cancel" type="reset">Cancelar</button>
+
+        </div>
     </div>
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

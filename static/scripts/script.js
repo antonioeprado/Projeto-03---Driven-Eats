@@ -1,43 +1,81 @@
 let check = false;
 let count = 0;
+const modal = document.querySelector("#modal");
+const cancelButton = document.querySelector(".cancel");
 const cardSelector = document.querySelectorAll(".card");
+const cardList = [];
 const button = document.querySelector("button");
 button.setAttribute("disabled", "disabled");
 
 cardSelector.forEach((element) => element.addEventListener("click", event => checkButton(event)));
 
+function checkoutCart() {
+    
+    const pratoModal = document.querySelector(".prato");
+    const bebidaModal = document.querySelector(".bebida");
+    const sobremesaModal = document.querySelector(".sobremesa");
+    const precoPratoModal = document.querySelector(".preco-prato");
+    const precoBebidaModal = document.querySelector(".preco-bebida");
+    const precoSobremesaModal = document.querySelector(".preco-sobremesa");
+    const precoTotalModal = document.querySelector(".preco-total");
+    let prato, bebida, sobremesa, preco;
+    
+    cardList.forEach((arguments) => {
+        if(arguments["container-pratos"]) prato = arguments["container-pratos"].children;
+        if(arguments["container-bebidas"]) bebida = arguments["container-bebidas"].children;
+        if(arguments["container-sobremesas"]) sobremesa = arguments["container-sobremesas"].children;
+    });
+    pratoModal.innerText = prato.item(1).innerText;
+    precoPratoModal.innerText = prato.item(3).innerText;
+    bebidaModal.innerText = bebida.item(1).innerText;
+    precoBebidaModal.innerText = bebida.item(3).innerText;
+    sobremesaModal.innerText = sobremesa.item(1).innerText;
+    precoSobremesaModal.innerText = sobremesa.item(3).innerText;
+    preco = Number((precoPratoModal.innerText.slice(3)).replace(",", ".")) + Number((precoBebidaModal.innerText.slice(3)).replace(",", ".")) + Number((precoSobremesaModal.innerText.slice(3)).replace(",", "."));
+    precoTotalModal.innerText = `R$ ${String(preco.toFixed(2)).replace(".", ",")}`;
+    modal.style.display = "flex";
+}
+
+
 function updateCheckoutButton(count) {
+
     let o = count !== 2 ? "os" : "mais um";
     let item = count !== 2 ? "itens" : "item";
-    let valor = count !== 2 ? 3-count : "";
+    let contagem = count !== 2 ? 3-count : "";
 
     if(count !== 3){
-        button.innerText = `Selecione ${o} ${valor} ${item} \n para fechar o pedido.`;
+        button.innerText = `Selecione ${o} ${contagem} ${item} \n para fechar o pedido.`;
     } else {
         button.innerText = "Fechar pedido.";
         button.removeAttribute("disabled");
         button.style.backgroundColor = "#32B72F";
+        button.addEventListener("click", () => checkoutCart());
+        cancelButton.addEventListener("click", () => modal.style.display = "none")
     }
 }
 
 
 function checkButton(e) {
     const sectionSelector = (e.currentTarget.parentNode).querySelectorAll(".card");
-    const cardSelected = e.currentTarget;
-    
+    const section = e.currentTarget.parentNode.parentNode.className;
+    const cardSelected = e.currentTarget;  
+    let cardObj = {};
+    cardObj[section] = cardSelected;  
     
     sectionSelector.forEach(arguments => {
-    if(arguments.id === "selected") {
-        arguments.removeAttribute("id");
+    if(arguments.className.includes("selected")) {
+        arguments.classList.remove("selected");
         check = false;
+        cardList.splice(cardList.findIndex((arguments) => arguments[section]), 1);
         count--;
         updateCheckoutButton(count);
     }
     });
 
     if(!check | count !== 0) {
-        cardSelected.id = "selected";
+        cardSelected.classList.add("selected");
         check = true;
+        cardList.push(cardObj);
         count++;
         updateCheckoutButton(count);
     }
