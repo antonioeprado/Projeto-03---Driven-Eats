@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
     user-select: none;
+    text-decoration: none;
 }
 
 html {
@@ -224,10 +225,13 @@ button {
     margin-top: 24px;
     align-self: center;
     background-color: #fff;
-    color: #50D074;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     font-size: 22px;
+}
+
+a {
+    color: #50D074;
 }
 
 .cancel {
