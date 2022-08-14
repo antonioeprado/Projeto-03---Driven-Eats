@@ -27,10 +27,10 @@ function checkoutCart() {
     nome = prompt("Digite seu nome: ");
     if(nome !== null) {
         endereco = prompt("Digite seu endereço: "); 
-        cardList.forEach((arguments) => {
-            if(arguments["container-pratos"]) prato = arguments["container-pratos"].children;
-            if(arguments["container-bebidas"]) bebida = arguments["container-bebidas"].children;
-            if(arguments["container-sobremesas"]) sobremesa = arguments["container-sobremesas"].children;
+        cardList.forEach((card) => {
+            if(card["container-pratos"]) prato = card["container-pratos"].children;
+            if(card["container-bebidas"]) bebida = card["container-bebidas"].children;
+            if(card["container-sobremesas"]) sobremesa = card["container-sobremesas"].children;
         });
 
         pratoModal.innerText = prato.item(1).innerText;
