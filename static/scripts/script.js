@@ -54,8 +54,9 @@ function checkoutCart() {
         
         Nome: ${nome}
         Endereço: ${endereco}`;
+        
         const url = `https://wa.me/5532988770112?text=${encodeURIComponent(mensagem)}`;
-        console.log(url)
+
         submitLink.setAttribute("href", url);
     }
 }
