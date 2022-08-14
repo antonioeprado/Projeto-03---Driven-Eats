@@ -25,40 +25,41 @@ function checkoutCart() {
     let prato, bebida, sobremesa, preco;
 
     nome = prompt("Digite seu nome: ");
-    endereco = prompt("Digite seu endereço: ");    
-    
-    cardList.forEach((arguments) => {
-        if(arguments["container-pratos"]) prato = arguments["container-pratos"].children;
-        if(arguments["container-bebidas"]) bebida = arguments["container-bebidas"].children;
-        if(arguments["container-sobremesas"]) sobremesa = arguments["container-sobremesas"].children;
-    });
+    if(nome !== null) {
+        endereco = prompt("Digite seu endereço: "); 
+        cardList.forEach((arguments) => {
+            if(arguments["container-pratos"]) prato = arguments["container-pratos"].children;
+            if(arguments["container-bebidas"]) bebida = arguments["container-bebidas"].children;
+            if(arguments["container-sobremesas"]) sobremesa = arguments["container-sobremesas"].children;
+        });
 
-    pratoModal.innerText = prato.item(1).innerText;
-    precoPratoModal.innerText = prato.item(3).innerText;
-    bebidaModal.innerText = bebida.item(1).innerText;
-    precoBebidaModal.innerText = bebida.item(3).innerText;
-    sobremesaModal.innerText = sobremesa.item(1).innerText;
-    precoSobremesaModal.innerText = sobremesa.item(3).innerText;
+        pratoModal.innerText = prato.item(1).innerText;
+        precoPratoModal.innerText = prato.item(3).innerText;
+        bebidaModal.innerText = bebida.item(1).innerText;
+        precoBebidaModal.innerText = bebida.item(3).innerText;
+        sobremesaModal.innerText = sobremesa.item(1).innerText;
+        precoSobremesaModal.innerText = sobremesa.item(3).innerText;
 
-    preco = Number((precoPratoModal.innerText.slice(3)).replace(",", ".")) + Number((precoBebidaModal.innerText.slice(3)).replace(",", ".")) + Number((precoSobremesaModal.innerText.slice(3)).replace(",", "."));
-    precoTotalModal.innerText = `R$ ${String(preco.toFixed(2)).replace(".", ",")}`;
+        preco = Number((precoPratoModal.innerText.slice(3)).replace(",", ".")) + Number((precoBebidaModal.innerText.slice(3)).replace(",", ".")) + Number((precoSobremesaModal.innerText.slice(3)).replace(",", "."));
+        precoTotalModal.innerText = `R$ ${String(preco.toFixed(2)).replace(".", ",")}`;
 
-    modal.style.display = "flex";
+        modal.style.display = "flex";
 
-    if(nome, endereco !== null) {
-        const mensagem = `Olá, gostaria de fazer o pedido:
-        - Prato: ${pratoModal.innerText}
-        - Bebida: ${bebidaModal.innerText}
-        - Sobremesa: ${sobremesaModal.innerText}
-        Total: ${precoTotalModal.innerText}
-        
-        Nome: ${nome}
-        Endereço: ${endereco}`;
-        
-        const url = `https://wa.me/5532988770112?text=${encodeURIComponent(mensagem)}`;
+        if(nome, endereco !== null) {
+            const mensagem = `Olá, gostaria de fazer o pedido:
+            - Prato: ${pratoModal.innerText}
+            - Bebida: ${bebidaModal.innerText}
+            - Sobremesa: ${sobremesaModal.innerText}
+            Total: ${precoTotalModal.innerText}
+            
+            Nome: ${nome}
+            Endereço: ${endereco}`;
 
-        submitLink.setAttribute("href", url);
-    }
+            const url = `https://wa.me/5532988770112?text=${encodeURIComponent(mensagem)}`;
+
+            submitLink.setAttribute("href", url);
+        }
+    }      
 }
 
 
